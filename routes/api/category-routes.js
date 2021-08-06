@@ -43,8 +43,25 @@ router.post('/', (req, res) => {
   });
 });
 
+// update a category by its `id` value
 router.put('/:id', (req, res) => {
-  // update a category by its `id` value
+  
+  Category.update(
+    {
+      // Update the category's name
+      category_name: req.body.category_name,
+    },
+    {
+      // Get the category based on id
+      where: {
+        id: req.params.id,
+      },
+    }
+  ).then((updatedCat) => {
+
+      // Sends the updated category as a json response
+      res.json(updatedCat);
+    }).catch((err) => res.json(err));
 });
 
 // delete a category by its `id` value

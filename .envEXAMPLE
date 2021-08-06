@@ -1,0 +1,3 @@
+DB_USER='Your_Username'
+DB_PW='Your_Password'
+DB_NAME='ecommerce_db'

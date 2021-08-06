@@ -1,0 +1,39 @@
+POST / PUT
+
+http://localhost:3001/api/categories/id
+{
+    "category_name":"category"
+}
+
+http://localhost:3001/api/tags/id
+{
+    "tag_name":"tag"
+}
+
+http://localhost:3001/api/products/id
+{
+    "product_name":"product",
+    "price": 10,
+    "stock": 10,
+    "category_id": 1,
+    "tagIds": [1,2]
+}
+
+
+
+GET
+
+http://localhost:3001/api/categories
+http://localhost:3001/api/tags
+http://localhost:3001/api/products
+http://localhost:3001/api/categories/id
+http://localhost:3001/api/tags/id
+http://localhost:3001/api/products/id
+
+
+
+DELETE
+
+http://localhost:3001/api/categories/id
+http://localhost:3001/api/tags/id
+http://localhost:3001/api/products/id

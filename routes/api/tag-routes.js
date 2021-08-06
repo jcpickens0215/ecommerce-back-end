@@ -47,8 +47,26 @@ router.post('/', (req, res) => {
   });
 });
 
+// update a tag's name by its `id` value
 router.put('/:id', (req, res) => {
-  // update a tag's name by its `id` value
+
+  Tag.update(
+    {
+      // Update the tag's name
+      tag_name: req.body.tag_name,
+    },
+    {
+      // Get the tag based on id
+      returning: true,
+      where: {
+        id: req.params.id,
+      },
+    }
+  ).then(([rows, [updatedTag]]) => {
+
+      // Sends the updated tag as a json response
+      res.json(updatedTag);
+  }).catch((err) => res.json(err));
 });
 
 // delete on tag by its `id` value
